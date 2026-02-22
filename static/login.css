@@ -1,0 +1,218 @@
+/* ===== LOGIN PAGE ===== */
+.login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 24px;
+}
+
+.login-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 44px 40px 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: var(--shadow-md);
+    animation: cardIn 0.35s ease-out;
+}
+
+@keyframes cardIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Arc Reactor - Login (larger variant) */
+.login-card .arc-reactor-lg {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 24px;
+}
+
+.login-card .arc-reactor-lg .reactor-core {
+    width: 10px;
+    height: 10px;
+}
+
+.login-card .arc-reactor-lg .ring-1 {
+    width: 32px;
+    height: 32px;
+}
+
+.login-card .arc-reactor-lg .ring-2 {
+    width: 52px;
+    height: 52px;
+}
+
+.login-card h1 {
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+}
+
+.login-card .login-subtitle {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+    font-weight: 400;
+}
+
+/* Auth Tabs */
+.auth-tabs {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-dark);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+    margin-bottom: 28px;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.auth-tab.active {
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.auth-tab:not(.active):hover {
+    color: var(--text-secondary);
+}
+
+/* Auth Forms */
+.auth-form {
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.auth-form.active {
+    display: flex;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-group .input-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+    transition: color var(--transition);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 13px 14px 13px 44px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    transition: all var(--transition);
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: var(--text-muted);
+}
+
+.form-group input:focus {
+    border-color: var(--primary-dim);
+    box-shadow: 0 0 0 3px var(--glow);
+}
+
+.form-group:focus-within .input-icon {
+    color: var(--primary);
+}
+
+/* Submit Button */
+.auth-submit {
+    width: 100%;
+    padding: 13px;
+    background: var(--primary-dim);
+    color: #ffffff;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all var(--transition);
+    margin-top: 4px;
+}
+
+.auth-submit:hover {
+    background: var(--primary);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+}
+
+.auth-submit:active {
+    transform: translateY(0);
+}
+
+/* Auth Message */
+.auth-message {
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 8px;
+    display: none;
+    font-weight: 500;
+}
+
+.auth-message.error {
+    display: block;
+    background: rgba(248, 113, 113, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.auth-message.success {
+    display: block;
+    background: rgba(52, 211, 153, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 480px) {
+    .login-card {
+        padding: 36px 24px 32px;
+        border-radius: 16px;
+    }
+
+    .login-card h1 {
+        font-size: 1rem;
+    }
+}
